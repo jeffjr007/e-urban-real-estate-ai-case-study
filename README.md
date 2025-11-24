@@ -49,7 +49,7 @@ graph TD
     classDef logic fill:#fff3e0,stroke:#ef6c00,stroke-width:2px,color:#000;
 
     User([👤 Lead WhatsApp]):::user <-->|Texto ou Áudio| Evo[Evolution API]
-    Evo -->|Webhook| Queue{⚡ Fila & Debounce<br/>PostgreSQL}:::logic
+    Evo -->|Webhook| Queue{"⚡ Fila & Debounce<br/>PostgreSQL"}:::logic
 
     subgraph "Módulo Receptivo (Vendas)"
         Queue -->|Se Áudio| Whisper[🎙️ Transcrição Whisper]:::ai
@@ -67,7 +67,7 @@ graph TD
     end
 
     subgraph "Módulo Ativo (Follow-up)"
-        Cron[⏰ Cron Jobs<br/>(24h / 1h / 15min)] -->|RPC Call| Supabase
+        Cron["⏰ Cron Jobs<br/>(24h / 1h / 15min)"] -->|RPC Call| Supabase
         Supabase -->|Lista de Confirmados| Batch[⚡ n8n Batch Process]:::logic
         Batch -->|Lembrete Personalizado| Evo
     end
